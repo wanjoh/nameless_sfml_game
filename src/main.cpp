@@ -2,8 +2,9 @@
 
 int main()
 {
-    auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
-    window.setFramerateLimit(144);
+    const int width = 1200, height = 800;
+    auto window = sf::RenderWindow(sf::VideoMode({width, height}), "Nameless game");
+    window.setFramerateLimit(60);
 
     while (window.isOpen())
     {
