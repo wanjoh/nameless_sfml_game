@@ -1,0 +1,21 @@
+#!/bin/bash
+files=$(git diff --cached --name-only --diff-filter=d | grep -E '\.(cpp|hpp|c|h)$')
+
+if [ -z "$files" ]; then
+    exit 0
+fi
+
+for file in $files; do
+    clang-tidy --fix --quiet "$file"
+    if [ $? -ge 0 ]; then
+        echo "clang-tidy changed file $file"
+    fi
+
+    clang-format -i "$file"
+    if [ $? -ge 0 ]; then
+        echo "clang-format changed file $file"
+    fi
+    git add "$file"
+done
+
+exit 0
