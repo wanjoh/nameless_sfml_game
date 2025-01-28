@@ -2,7 +2,7 @@
 
 ## Requirements:
 - SFML 3.0 (required version)
-- CMake (best with version 3.31.4 or later)
+- CMake (minimum version 3.28)
 - LLVM (required for clang tools, best with version 19.1.7 or later)
 
 ## Setup
